@@ -27,6 +27,16 @@ app.get('/', (req, res) => {
   res.send('<h1>🌍 ==> Node Rest API server is up and running 🔥</h1>');
 });
 
+// Error Handling
+app.use((req, res) => {
+  const error = new Error('Not Found');
+  error.status = 404 || 500;
+  res.send({
+    Error: 'Page not found',
+    Status: error.status
+  });
+});
+
 if (process.env.NODE_ENV === 'PRODUCTION_MODE') {
   app.use(express.static('client/build'));
 
