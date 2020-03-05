@@ -1,6 +1,6 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
+const cors = require('cors');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
@@ -46,5 +46,5 @@ if (process.env.NODE_ENV === 'PRODUCTION_MODE') {
 }
 
 app.listen(process.env.PORT || 5000, () =>
-  console.log(`[[${process.env.NODE_ENV}]] 🌍  ==> Node Rest API server is on 🔥`.yellow.bold)
+  console.log(`[[${process.env.NODE_ENV}]] 🌍  ==> NODE REST API server is on 🔥`.yellow.bold)
 );
