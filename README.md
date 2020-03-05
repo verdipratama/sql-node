@@ -4,7 +4,7 @@
 
 ## What we build ?
 
-1. /products (GET,POST)
-2. /orders (GET,POST)
-3. /products/{id} (GET,PATCH,DELETE)
-4. /orders/{id} (GET, DELETE)
+[x] /products (GET,POST)
+[x] /orders (GET,POST)
+[x] /products/{id} (GET,PATCH,DELETE)
+[x] /orders/{id} (GET, DELETE)
