@@ -1,0 +1,18 @@
+{
+  "name": "node-rest",
+  "version": "4.0.4",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "clean-api": "rm -rf node_modules",
+    "clean-client": "cd client && rm -rf node_modules",
+    "client": "yarn --cwd ~/Desktop/expense-tracker/client/ start",
+    "dev": "concurrently \"yarn start server\" \"yarn run client\"",
+    "install-client": "cd client && yarn"
+  },
+  "repository": "git@github.com:verdipratama/node-rest.git",
+  "author": "verdipratama <verdipratama@icloud.com>",
+  "license": "MIT",
+  "private": true
+}
