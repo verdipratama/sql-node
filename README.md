@@ -1,6 +1,6 @@
 # What is RESTFUL API ? - SKIP DULU SEMINGGU !!!!!
 
-- Client => Request => Server => Response => Client
+- Client => Request => Server => Response => Client :)
 
 ## What we build ?
 
