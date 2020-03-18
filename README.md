@@ -8,3 +8,7 @@
 - [x] /orders (GET,POST)
 - [x] /products/{id} (GET,PATCH,DELETE)
 - [x] /orders/{id} (GET, DELETE)
+
+## Minggu ini lagi ngerjain proskrip cuy ..
+
+- Seminggu BAB I
