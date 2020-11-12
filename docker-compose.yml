@@ -1,0 +1,30 @@
+version: '2'
+services:
+  mariadb:
+    image: mariadb:10.3
+    hostname: mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker/mariadb:/var/lib/mysql
+      - ./docker/schema:/docker-entrypoint-initdb.d
+    environment:
+      - TZ=Asia/Bangkok
+      - MYSQL_ROOT_PASSWORD=123456
+      - 'MYSQL_ROOT_HOST=%'
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    hostname: phpmyadmin
+    ports:
+      - 9999:80
+    environment:
+      - PMA_HOST=mariadb
+  # api:
+  #   build: .
+  #   ports:
+  #     - '3333:3333'
+  #   restart: always
+  #   volumes:
+  #     - ./:/src
+  #   depends_on:
+  #     - mariadb
