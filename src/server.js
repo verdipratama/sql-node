@@ -21,14 +21,14 @@ app.use(cors());
 app.use(express.json({ limit: 10e7 }));
 app.use(express.urlencoded({ extended: false, limit: 10e7 }));
 
+// Error Handling
+app.use(catch404);
+app.use(errorHandler);
+
 // Route Middlewares
 app.get('/', (req, res) => {
   res.send('<h1>🌍 ==> Node Rest API server is up and running 🔥</h1>');
 });
-
-// Error Handling
-app.use(catch404);
-app.use(errorHandler);
 
 if (process.env.NODE_ENV === 'PRODUCTION_MODE') {
   app.use(express.static('client/build'));
