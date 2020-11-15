@@ -32,8 +32,11 @@ app.use(express.static(publicDirectory));
 
 // Route Middlewares
 app.get('/', (req, res) => {
-  // res.send('<h1>🌍 ==> Node Rest API server is up and running 🔥</h1>');
   res.render('index');
+});
+
+app.get('/api', (req, res) => {
+  res.send('<h1>🌍 ==> Node Rest API server is up and running 🔥</h1>');
 });
 
 if (process.env.NODE_ENV === 'PRODUCTION_MODE') {
