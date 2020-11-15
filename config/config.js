@@ -13,17 +13,17 @@ if (result.error) {
   );
 }
 
-exports.start = mysql.createConnection({
-  host: process.env.HOST,
-  user: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE,
+const db = mysql.createConnection({
+  host: process.env.DB_HOST || 'mariadb',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '123456',
+  database: process.env.DB_DATABASE || 'restapi',
 });
 
-export const config = {
-  db: process.env.DB || 'dev',
-  clientID: process.env.CLIENT_ID || 'ID',
-  tokenIssuer: process.env.ISSUER || 'ftis@admin',
-  primarySecret: process.env.PRIMARY_SECRET || 'PRIMARY_SECRET',
-  syncSecret: process.env.SYNC_SECRET || 'SYNC_SECRET',
-};
+db.connect(err => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('MySQL Connected...');
+  }
+});
