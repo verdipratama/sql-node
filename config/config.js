@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable node/no-unpublished-require */
 const dotenv = require('dotenv');
 const mysql = require('mysql');
+const colors = require('colors');
 
 // config env variables
-const result = dotenv.config({
-  path: String.prototype.concat(__dirname, '\\.env'),
-});
+const result = dotenv.config({ path: './.env' });
 
 if (result.error) {
   /* eslint-disable-next-line */
@@ -14,16 +15,16 @@ if (result.error) {
 }
 
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || 'mariadb',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '123456',
-  database: process.env.DB_DATABASE || 'restapi',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
 
-db.connect(err => {
-  if (err) {
-    console.log(err);
+db.connect(error => {
+  if (error) {
+    console.log('Error connecting to the database');
   } else {
-    console.log('MySQL Connected...');
+    console.log('MySQL Connected...'.red.bold);
   }
 });
