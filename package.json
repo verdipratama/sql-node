@@ -7,6 +7,10 @@
     "dev": "nodemon --exec babel-node ./src/server.js",
     "init-lint": "eslint --init",
     "init-prettier": "prettier-init",
+    "init-db": "db-migrate db:create restapi",
+    "create-migration": "db-migrate create",
+    "migration-up": "db-migrate up",
+    "migration-down": "db-migrate down",
     "test": "mocha --check-leaks --bail --exit --colors --recursive --timeout 10000 --require @babel/register --require regenerator-runtime"
   },
   "keywords": [],
