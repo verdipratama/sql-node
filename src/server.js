@@ -22,8 +22,8 @@ app.use(express.json({ limit: 10e7 }));
 app.use(express.urlencoded({ extended: false, limit: 10e7 }));
 
 // Error Handling
-// app.use(catch404);
-// app.use(errorHandler);
+app.use('/api', catch404);
+app.use('/api', errorHandler);
 
 // HBS CONNECT
 const publicDirectory = path.join(__dirname, '../public');
