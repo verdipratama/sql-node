@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable node/no-unpublished-require */
 import '../config/config';
+import { router as routes } from './routes/index';
 import { errorHandler, catch404 } from './routes/error';
 
 const express = require('express');
@@ -21,16 +22,19 @@ app.use(cors());
 app.use(express.json({ limit: 10e7 }));
 app.use(express.urlencoded({ extended: false, limit: 10e7 }));
 
+// REST API routes
+app.use('/api', routes);
+
 // Error Handling
 app.use('/api', catch404);
 app.use('/api', errorHandler);
 
-// HBS CONNECT
+// Handlebars setup
 const publicDirectory = path.join(__dirname, '../public');
 app.set('view engine', 'hbs');
 app.use(express.static(publicDirectory));
 
-// Route Middlewares
+// Route Middlewares Handlebars
 app.get('/', (req, res) => {
   res.render('index');
 });
